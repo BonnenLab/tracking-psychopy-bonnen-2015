@@ -10,8 +10,6 @@ def strvec2npy(data):
 def tracking_data(location,pid):
     print('loading data files...')
     files = glob.glob(location+pid+'*.csv')
-    if len(files) == 0:
-        files = glob.glob('tracking-psychopy-bonnen-2015/'+location+pid+'*.csv')
     data = pd.DataFrame()
     li = []
     for file in files: 
@@ -40,8 +38,6 @@ def tracking_data(location,pid):
 
 def twoAFC_data(location,pid):
     files = glob.glob(location+pid+'*.csv')
-    if len(files) == 0:
-        files = glob.glob('tracking-psychopy-bonnen-2015/'+location+pid+'*.csv')
     data = pd.DataFrame()
     print('loading data files...')
     for file in files: 
