@@ -24,7 +24,7 @@ def tracking_data(location,pid):
     
     
     # drop nan rows
-    data = data.dropna()
+    data = data.dropna(ignore_index=True)
     
     # convert to numpy arrays
     for key in keep_keys[:5]:      
@@ -60,7 +60,8 @@ def twoAFC_data(location,pid):
     print('loading data files...')
     for file in files: 
         print(file)
-        data = pd.concat((data,pd.read_csv(file))) # load files
+        data = pd.concat((data,pd.read_csv(file)),ignore_index=True) # load files
+    
     
     keep_keys = ['key_resp.keys', 'key_resp.rt', 'offset', 'imageFile', 'participant', 'session']
     data = data[keep_keys]
